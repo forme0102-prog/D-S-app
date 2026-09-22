@@ -7,80 +7,107 @@ const CURRENCY = "$";                     // символ валюты, отоб
 // =========================================================
 // ДАННЫЕ О ТОВАРАХ
 // Замените этот массив своими товарами. У каждого товара:
-// id, category, name, desc, price, image, specs (массив пар [название, значение])
+// id, category, name, desc, price, images (массив ссылок на фото, можно 1 или несколько),
+// specs (массив пар [название, значение])
+//
+// Как добавить свои фото — см. README.md, раздел "Свои фото товаров".
 // =========================================================
 const PRODUCTS = [
   {
     id: 1,
-    category: "Электроника",
-    name: "Беспроводные наушники X1",
-    desc: "Компактные TWS-наушники с шумоподавлением и чехлом для зарядки.",
-    price: 24,
-    image: "https://placehold.co/600x450/2481cc/ffffff?text=Наушники+X1",
-    specs: [["Время работы", "6 часов + 24 ч (кейс)"], ["Bluetooth", "5.3"], ["Шумоподавление", "Есть"], ["Цвет", "Чёрный"]]
+    category: "Маски и трубки",
+    name: "Маска для дайвинга Aqua Pro",
+    desc: "Закалённое стекло, силиконовый обтюратор, низкий объём подмасочного пространства.",
+    price: 35,
+    images: [
+      "https://placehold.co/600x450/0891b2/ffffff?text=Aqua+Pro",
+      "https://placehold.co/600x450/0e7490/ffffff?text=Фото+2"
+    ],
+    specs: [["Стекло", "Закалённое"], ["Обтюратор", "Силикон"], ["Совместимость", "Для трубки любого типа"], ["Цвет", "Чёрный"]]
   },
   {
     id: 2,
-    category: "Электроника",
-    name: "Умные часы Fit Pro",
-    desc: "Фитнес-трекер с пульсометром, уведомлениями и защитой от воды.",
-    price: 32,
-    image: "https://placehold.co/600x450/2481cc/ffffff?text=Fit+Pro",
-    specs: [["Экран", "1.8\" AMOLED"], ["Батарея", "до 10 дней"], ["Защита", "IP68"], ["Совместимость", "iOS / Android"]]
+    category: "Маски и трубки",
+    name: "Трубка сухого типа Dry Snorkel",
+    desc: "Клапан от воды сверху и продувочный клапан снизу — не глотаете воду на поверхности.",
+    price: 18,
+    images: [
+      "https://placehold.co/600x450/0891b2/ffffff?text=Dry+Snorkel",
+      "https://placehold.co/600x450/0e7490/ffffff?text=Фото+2"
+    ],
+    specs: [["Тип", "Сухой (dry top)"], ["Материал", "Силикон + пластик"], ["Крепление", "Универсальное"]]
   },
   {
     id: 3,
-    category: "Дом и быт",
-    name: "Увлажнитель воздуха Mist",
-    desc: "Ультразвуковой увлажнитель на 3.5 л с подсветкой и таймером.",
-    price: 27,
-    image: "https://placehold.co/600x450/34a853/ffffff?text=Mist",
-    specs: [["Объём бака", "3.5 л"], ["Уровень шума", "< 30 дБ"], ["Автоотключение", "Да"], ["Питание", "220В"]]
+    category: "Ласты",
+    name: "Ласты для дайвинга Fins X",
+    desc: "Открытая пятка с регулируемым ремешком, жёсткая лопасть для мощного гребка.",
+    price: 42,
+    images: [
+      "https://placehold.co/600x450/2563eb/ffffff?text=Fins+X",
+      "https://placehold.co/600x450/1d4ed8/ffffff?text=Фото+2"
+    ],
+    specs: [["Тип пятки", "Открытая"], ["Жёсткость лопасти", "Средне-жёсткая"], ["Размеры", "38-46 (регулируемые)"]]
   },
   {
     id: 4,
-    category: "Дом и быт",
-    name: "Органайзер для кухни",
-    desc: "Набор из 4 контейнеров для сыпучих продуктов с герметичными крышками.",
-    price: 15,
-    image: "https://placehold.co/600x450/34a853/ffffff?text=Органайзер",
-    specs: [["Материал", "Пластик BPA-free"], ["В комплекте", "4 контейнера"], ["Объём", "0.5-1.2 л"]]
+    category: "Ласты",
+    name: "Ласты для плавания Short Blade",
+    desc: "Короткая лопасть — удобны для снорклинга и тренировок в бассейне.",
+    price: 25,
+    images: [
+      "https://placehold.co/600x450/2563eb/ffffff?text=Short+Blade",
+      "https://placehold.co/600x450/1d4ed8/ffffff?text=Фото+2"
+    ],
+    specs: [["Тип пятки", "Закрытая"], ["Длина лопасти", "Короткая"], ["Размеры", "36-45"]]
   },
   {
     id: 5,
-    category: "Красота",
-    name: "LED-маска для лица",
-    desc: "Косметологическая маска с 7 режимами светотерапии.",
-    price: 45,
-    image: "https://placehold.co/600x450/e05780/ffffff?text=LED+Маска",
-    specs: [["Режимов", "7"], ["Зарядка", "USB-C"], ["Время сеанса", "10-20 мин"]]
+    category: "Гидрокостюмы",
+    name: "Гидрокостюм 3мм Wetsuit",
+    desc: "Неопрен 3мм, проклеенные и обшитые швы, молния на спине.",
+    price: 89,
+    images: [
+      "https://placehold.co/600x450/1e3a8a/ffffff?text=Wetsuit+3mm",
+      "https://placehold.co/600x450/1e40af/ffffff?text=Фото+2"
+    ],
+    specs: [["Толщина неопрена", "3 мм"], ["Молния", "На спине"], ["Размеры", "S-XXL"], ["Температура воды", "от 20°C"]]
   },
   {
     id: 6,
-    category: "Красота",
-    name: "Массажёр для лица Ice Roller",
-    desc: "Ледяной роллер для утреннего ухода и снятия отёков.",
-    price: 9,
-    image: "https://placehold.co/600x450/e05780/ffffff?text=Ice+Roller",
-    specs: [["Материал", "Медицинский силикон + металл"], ["Уход", "Хранить в холодильнике"]]
+    category: "Аксессуары",
+    name: "Шапочка для плавания Silicone Cap",
+    desc: "Плотный силикон, не тянет и не рвёт волосы, держит форму.",
+    price: 8,
+    images: [
+      "https://placehold.co/600x450/0d9488/ffffff?text=Silicone+Cap",
+      "https://placehold.co/600x450/0f766e/ffffff?text=Фото+2"
+    ],
+    specs: [["Материал", "Силикон"], ["Размер", "Универсальный"], ["Цвета", "Чёрный, синий, розовый"]]
   },
   {
     id: 7,
     category: "Аксессуары",
-    name: "Чехол-бумажник для телефона",
-    desc: "Кожаный чехол с отделениями для карт, подходит под большинство моделей.",
-    price: 12,
-    image: "https://placehold.co/600x450/8e44ad/ffffff?text=Чехол",
-    specs: [["Материал", "Эко-кожа"], ["Карт-холдер", "до 3 карт"], ["Цвета", "Чёрный, коричневый"]]
+    name: "Очки для плавания Swim Goggles Pro",
+    desc: "Антифог-покрытие, защита от УФ, мягкая силиконовая окантовка.",
+    price: 14,
+    images: [
+      "https://placehold.co/600x450/0d9488/ffffff?text=Goggles+Pro",
+      "https://placehold.co/600x450/0f766e/ffffff?text=Фото+2"
+    ],
+    specs: [["Покрытие", "Антифог"], ["Защита", "UV400"], ["Регулировка", "Есть"]]
   },
   {
     id: 8,
     category: "Аксессуары",
-    name: "Рюкзак Urban 20L",
-    desc: "Городской рюкзак с отделением для ноутбука 15\" и USB-портом.",
-    price: 29,
-    image: "https://placehold.co/600x450/8e44ad/ffffff?text=Рюкзак",
-    specs: [["Объём", "20 л"], ["Ноутбук", "до 15\""], ["Материал", "Влагостойкий полиэстер"]]
+    name: "Гермомешок Dry Bag 10L",
+    desc: "Непромокаемый мешок для телефона, документов и одежды на воде.",
+    price: 20,
+    images: [
+      "https://placehold.co/600x450/0d9488/ffffff?text=Dry+Bag+10L",
+      "https://placehold.co/600x450/0f766e/ffffff?text=Фото+2"
+    ],
+    specs: [["Объём", "10 л"], ["Материал", "Водонепроницаемый ПВХ"], ["Крепление", "Регулируемый ремень"]]
   }
 ];
 
@@ -142,7 +169,8 @@ const el = {
   cartTotal: document.getElementById("cartTotal"),
 
   productModal: document.getElementById("productModal"),
-  pmImage: document.getElementById("pmImage"),
+  pmGalleryTrack: document.getElementById("pmGalleryTrack"),
+  pmGalleryDots: document.getElementById("pmGalleryDots"),
   pmCategory: document.getElementById("pmCategory"),
   pmName: document.getElementById("pmName"),
   pmDesc: document.getElementById("pmDesc"),
@@ -207,8 +235,9 @@ function renderProducts() {
     const card = document.createElement("button");
     card.className = "card";
     card.innerHTML = `
-      <img class="card__image" src="${p.image}" alt="${p.name}" loading="lazy">
+      <img class="card__image" src="${p.images[0]}" alt="${p.name}" loading="lazy">
       <div class="card__body">
+        <p class="card__category">${p.category}</p>
         <p class="card__name">${p.name}</p>
         <p class="card__desc">${p.desc}</p>
         <p class="card__price">${p.price} ${CURRENCY}</p>
@@ -222,14 +251,34 @@ function renderProducts() {
 // =========================================================
 // МОДАЛКА ТОВАРА
 // =========================================================
+function renderGallery(images) {
+  el.pmGalleryTrack.innerHTML = images
+    .map((src, i) => `<img class="modal__gallery-img" src="${src}" alt="Фото ${i + 1}">`)
+    .join("");
+  el.pmGalleryDots.innerHTML = images
+    .map((_, i) => `<span class="dot${i === 0 ? " active" : ""}"></span>`)
+    .join("");
+  el.pmGalleryTrack.scrollLeft = 0;
+  el.pmGalleryDots.style.display = images.length > 1 ? "flex" : "none";
+}
+
+// Подсвечиваем активную точку при свайпе галереи
+el.pmGalleryTrack.addEventListener("scroll", () => {
+  const track = el.pmGalleryTrack;
+  if (!track.clientWidth) return;
+  const index = Math.round(track.scrollLeft / track.clientWidth);
+  el.pmGalleryDots.querySelectorAll(".dot").forEach((dot, i) => {
+    dot.classList.toggle("active", i === index);
+  });
+});
+
 function openProductModal(id) {
   const p = PRODUCTS.find((x) => x.id === id);
   if (!p) return;
   currentProductId = id;
   modalQty = 1;
 
-  el.pmImage.src = p.image;
-  el.pmImage.alt = p.name;
+  renderGallery(p.images);
   el.pmCategory.textContent = p.category;
   el.pmName.textContent = p.name;
   el.pmDesc.textContent = p.desc;
@@ -303,7 +352,7 @@ function renderCartItems() {
     const row = document.createElement("div");
     row.className = "cart-item";
     row.innerHTML = `
-      <img class="cart-item__image" src="${product.image}" alt="${product.name}">
+      <img class="cart-item__image" src="${product.images[0]}" alt="${product.name}">
       <div class="cart-item__info">
         <p class="cart-item__name">${product.name}</p>
         <p class="cart-item__price">${qty} × ${product.price} ${CURRENCY}</p>
@@ -335,10 +384,18 @@ if (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) {
   el.coName.value = tg.initDataUnsafe.user.first_name || "";
 }
 
+// Убираем подсветку ошибки, как только начали печатать
+[el.coName, el.coPhone].forEach((input) => {
+  input.addEventListener("input", () => input.classList.remove("field-input--error"));
+});
+
 el.coSubmitBtn.addEventListener("click", () => {
   const name = el.coName.value.trim();
   const phone = el.coPhone.value.trim();
   const comment = el.coComment.value.trim();
+
+  el.coName.classList.toggle("field-input--error", !name);
+  el.coPhone.classList.toggle("field-input--error", !phone);
 
   if (!name || !phone) {
     showToast("Укажите имя и телефон");
