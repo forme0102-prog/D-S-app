@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Витрина товаров</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+
+  <!-- Шапка -->
+  <header class="topbar">
+    <h1 class="topbar__title">Каталог товаров</h1>
+  </header>
+
+  <!-- Поиск -->
+  <div class="search-wrap">
+    <input id="searchInput" class="search-input" type="text" placeholder="Поиск товара...">
+  </div>
+
+  <!-- Категории -->
+  <nav id="categories" class="categories"></nav>
+
+  <!-- Сетка товаров -->
+  <main id="productGrid" class="grid"></main>
+
+  <p id="emptyState" class="empty-state" hidden>Ничего не найдено 🔍</p>
+
+  <!-- Плавающая панель корзины -->
+  <button id="cartBar" class="cart-bar" hidden>
+    <span class="cart-bar__count" id="cartCount">0</span>
+    <span class="cart-bar__label">Корзина</span>
+    <span class="cart-bar__total" id="cartTotal">0 $</span>
+  </button>
+
+  <!-- Модалка карточки товара -->
+  <div id="productModal" class="modal-overlay" hidden>
+    <div class="modal">
+      <button class="modal__close" data-close>&times;</button>
+      <div class="modal__scroll">
+        <img id="pmImage" class="modal__image" src="" alt="">
+        <div class="modal__body">
+          <span id="pmCategory" class="modal__category"></span>
+          <h2 id="pmName" class="modal__name"></h2>
+          <p id="pmDesc" class="modal__desc"></p>
+
+          <h3 class="modal__subtitle">Характеристики</h3>
+          <ul id="pmSpecs" class="modal__specs"></ul>
+
+          <div class="modal__price-row">
+            <span id="pmPrice" class="modal__price"></span>
+            <div class="qty-control">
+              <button id="pmQtyMinus" class="qty-btn">−</button>
+              <span id="pmQty" class="qty-value">1</span>
+              <button id="pmQtyPlus" class="qty-btn">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal__actions">
+        <button id="pmAddCart" class="btn btn--secondary">В корзину</button>
+        <button id="pmBuyNow" class="btn btn--primary">Заказать сейчас</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модалка корзины -->
+  <div id="cartModal" class="modal-overlay" hidden>
+    <div class="modal">
+      <button class="modal__close" data-close>&times;</button>
+      <div class="modal__scroll">
+        <h2 class="modal__name">Корзина</h2>
+        <div id="cartItems" class="cart-items"></div>
+      </div>
+      <div class="modal__actions modal__actions--column">
+        <div class="cart-summary">
+          <span>Итого:</span>
+          <strong id="cartSummaryTotal">0 $</strong>
+        </div>
+        <button id="cartCheckoutBtn" class="btn btn--primary">Оформить заказ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модалка оформления заказа -->
+  <div id="checkoutModal" class="modal-overlay" hidden>
+    <div class="modal modal--small">
+      <button class="modal__close" data-close>&times;</button>
+      <div class="modal__scroll">
+        <h2 class="modal__name">Оформление заказа</h2>
+        <p class="modal__desc">Менеджер свяжется с вами в Telegram для подтверждения.</p>
+
+        <label class="field-label" for="coName">Имя</label>
+        <input id="coName" class="field-input" type="text" placeholder="Ваше имя">
+
+        <label class="field-label" for="coPhone">Телефон</label>
+        <input id="coPhone" class="field-input" type="tel" placeholder="+998 90 123 45 67">
+
+        <label class="field-label" for="coComment">Комментарий (необязательно)</label>
+        <textarea id="coComment" class="field-input" rows="2" placeholder="Например: удобное время звонка"></textarea>
+      </div>
+      <div class="modal__actions">
+        <button id="coSubmitBtn" class="btn btn--primary">Отправить заказ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Тост-уведомление -->
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
