@@ -172,6 +172,9 @@ body {
   font-weight: 600;
   box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
+.cart-bar[hidden] {
+  display: none;
+}
 .cart-bar__count {
   background: rgba(255,255,255,0.25);
   border-radius: 999px;
@@ -193,6 +196,9 @@ body {
   background: rgba(0,0,0,0.45);
   display: flex;
   align-items: flex-end;
+}
+.modal-overlay[hidden] {
+  display: none;
 }
 .modal {
   width: 100%;
