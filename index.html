@@ -39,7 +39,10 @@
     <div class="modal">
       <button class="modal__close" data-close>&times;</button>
       <div class="modal__scroll">
-        <img id="pmImage" class="modal__image" src="" alt="">
+        <div class="modal__gallery">
+          <div class="modal__gallery-track" id="pmGalleryTrack"></div>
+        </div>
+        <div class="modal__gallery-dots" id="pmGalleryDots"></div>
         <div class="modal__body">
           <span id="pmCategory" class="modal__category"></span>
           <h2 id="pmName" class="modal__name"></h2>
@@ -92,10 +95,10 @@
         <p class="modal__desc">Менеджер свяжется с вами в Telegram для подтверждения.</p>
 
         <label class="field-label" for="coName">Имя</label>
-        <input id="coName" class="field-input" type="text" placeholder="Ваше имя">
+        <input id="coName" class="field-input" type="text" placeholder="Ваше имя" autocomplete="name">
 
         <label class="field-label" for="coPhone">Телефон</label>
-        <input id="coPhone" class="field-input" type="tel" placeholder="+998 90 123 45 67">
+        <input id="coPhone" class="field-input" type="tel" inputmode="tel" placeholder="+998 90 123 45 67" autocomplete="tel">
 
         <label class="field-label" for="coComment">Комментарий (необязательно)</label>
         <textarea id="coComment" class="field-input" rows="2" placeholder="Например: удобное время звонка"></textarea>
